@@ -49,16 +49,17 @@ void insertMap(HashMap * map, char * key, void * value)
   }
   long posicion=hash(key,map->capacity);
   Pair* par = searchMap(map,key);
-  if(par==NULL)
-  {
-    long posicion = map->current; // Obtiene la posición actualizada desde searchMap
+  if (par == NULL) {
+    // Si la clave no está presente, encuentra la próxima posición disponible
+    while (map->buckets[posicion] != NULL) {
+        posicion = (posicion + 1) % map->capacity;
+    }
+    // Crea un nuevo par y lo inserta en la posición encontrada
     map->buckets[posicion] = createPair(key, value);
     map->size++;
-    
-  }
-  else
-  {
-    par->value=value;
+  } else {
+    // Si la clave está presente, actualiza el valor del par existente
+    par->value = value;
   }
   map->current = posicion;
 
