@@ -108,12 +108,9 @@ Pair * searchMap(HashMap * map,  char * key)
     {
       if(is_equal(par->key, key))
       {
-        map->current = posicion;
         return par;
       }
-      par=par->next;
-      
-      
+      par++;  
     }
 return NULL;
 }
