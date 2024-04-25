@@ -115,25 +115,19 @@ Pair * searchMap(HashMap * map,  char * key)
   {
     return NULL;
   }
-  long posicion=hash(key,map->capacity);
-  Pair* par=map->buckets[posicion];
-  while(par!=NULL)
-    {
-      if(is_equal(par->key,key))
-      {
-        return par;
-        
+  long i = 0;
+  long posicion;
+  do {
+      posicion = hash(key, map->capacity, i); // Calcular el índice utilizando la función hash con un valor de i
+      if (map->buckets[posicion] != NULL && is_equal(map->buckets[posicion]->key, key)) {
+          map->current = posicion;
+          return map->buckets[posicion];
       }
-      
-      
-    }
-  if (par == NULL)
-  {
-    return NULL;
-  }
-  return par
-  
- 
+      i++;
+  } while (map->buckets[posicion] != NULL && i < map->capacity);
+
+  // Si llegamos aquí, no se encontró el par con la clave especificada
+  return NULL;
   
 }
 

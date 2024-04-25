@@ -154,3 +154,16 @@ hashmap.c:134:13: error: expected ‘;’ before ‘}’ token
       | ~            
 Compilation failed
 f21a185
+Thu 25 Apr 2024 07:03:35 PM UTC: 
+ hashmap.c | 26 ++++++++++----------------
+ 1 file changed, 10 insertions(+), 16 deletions(-)
+In file included from test.c:4:
+hashmap.c: In function ‘searchMap’:
+hashmap.c:121:18: error: too many arguments to function ‘hash’
+  121 |       posicion = hash(key, map->capacity, i); // Calcular el índice utilizando la función hash con un valor de i
+      |                  ^~~~
+hashmap.c:26:6: note: declared here
+   26 | long hash( char * key, long capacity) {
+      |      ^~~~
+Compilation failed
+bd1d0d0
