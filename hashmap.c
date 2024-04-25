@@ -91,7 +91,22 @@ HashMap * createMap(long capacity)
 }
   
 
-void eraseMap(HashMap * map,  char * key) {    
+void eraseMap(HashMap * map,  char * key) 
+{
+  if(map==NULL || key==NULL) return;
+  long posicion=hash(key,map->capacity);
+  Pair* par=searchMap(map,key);
+  if(par!=NULL)
+  {
+    map->size--;
+    free(par->key);
+    free(par->value);
+    free(par);
+    map->buckets[posicion]=NULL;
+    
+  }
+
+  
 
 
 }
