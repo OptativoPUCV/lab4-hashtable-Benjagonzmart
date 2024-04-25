@@ -98,11 +98,13 @@ void eraseMap(HashMap * map,  char * key)
   Pair* par=searchMap(map,key);
   if(par!=NULL)
   {
-    map->size--;
     free(par->key);
     free(par->value);
     free(par);
     map->buckets[posicion]=NULL;
+    map->size--;
+
+    
     
   }
 
@@ -131,7 +133,6 @@ Pair * firstMap(HashMap * map)
         return map->buckets[i];
         
       }
-      
     }
   return NULL;
 
