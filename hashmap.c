@@ -115,16 +115,14 @@ Pair * searchMap(HashMap * map,  char * key)
   {
     return NULL;
   }
-  long i = 0;
   long posicion;
-  do {
-      posicion = hash(key, map->capacity, i); // Calcular el índice utilizando la función hash con un valor de i
+  for (long i = 0; i < map->capacity; i++) {
+      posicion = hash(key, map->capacity); // Calcular el índice utilizando la función hash
       if (map->buckets[posicion] != NULL && is_equal(map->buckets[posicion]->key, key)) {
           map->current = posicion;
           return map->buckets[posicion];
       }
-      i++;
-  } while (map->buckets[posicion] != NULL && i < map->capacity);
+  }
 
   // Si llegamos aquí, no se encontró el par con la clave especificada
   return NULL;
