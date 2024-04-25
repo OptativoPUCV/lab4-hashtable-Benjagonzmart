@@ -103,17 +103,11 @@ void eraseMap(HashMap * map,  char * key)
   {
     free(par->key);
     free(par->value);
-    free(par);
-    map->buckets[posicion]=NULL;
+    par->key = NULL;
     map->size--;
-
-    
-    
   }
 
   
-
-
 }
 
 Pair * searchMap(HashMap * map,  char * key)

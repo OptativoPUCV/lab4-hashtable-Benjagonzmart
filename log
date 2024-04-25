@@ -113,3 +113,14 @@ Thu 25 Apr 2024 06:17:12 PM UTC:
  tests:  7|4
 total_score: 30/70
 d54ef96
+Thu 25 Apr 2024 06:18:21 PM UTC: 
+ hashmap.c | 6 +-----
+ 1 file changed, 1 insertion(+), 5 deletions(-)
+In file included from test.c:4:
+hashmap.c: In function ‘eraseMap’:
+hashmap.c:100:8: error: unused variable ‘posicion’ [-Werror=unused-variable]
+  100 |   long posicion=hash(key,map->capacity);
+      |        ^~~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+03c6d75
