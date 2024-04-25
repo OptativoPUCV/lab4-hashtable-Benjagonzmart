@@ -103,15 +103,18 @@ Pair * searchMap(HashMap * map,  char * key)
     return NULL;
   }
   long posicion=hash(key,map->capacity);
-  Pair* par=map->buckets[posicion];
+  Pair* par = map->buckets[posicion];
   while(par!=NULL)
     {
       if(is_equal(par->key, key))
       {
         return par;
       }
+      par=par->next;
+      
+      
     }
-
+return NULL;
 }
 
 Pair * firstMap(HashMap * map) {

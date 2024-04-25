@@ -42,3 +42,13 @@ hashmap.c:115:1: error: control reaches end of non-void function [-Werror=return
 cc1: all warnings being treated as errors
 Compilation failed
 bfc1f34
+Thu 25 Apr 2024 05:45:10 PM UTC: 
+ hashmap.c | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+In file included from test.c:4:
+hashmap.c: In function ‘searchMap’:
+hashmap.c:113:14: error: ‘Pair’ has no member named ‘next’
+  113 |       par=par->next;
+      |              ^~
+Compilation failed
+d4cc64c
