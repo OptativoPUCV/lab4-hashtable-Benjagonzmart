@@ -67,3 +67,13 @@ Thu 25 Apr 2024 06:00:39 PM UTC:
  1 file changed, 1 insertion(+), 4 deletions(-)
  tests:  0|0
 ec5aeee
+Thu 25 Apr 2024 06:07:03 PM UTC: 
+ hashmap.c | 29 ++++++++++++++++++++++-------
+ 1 file changed, 22 insertions(+), 7 deletions(-)
+In file included from test.c:4:
+hashmap.c: In function ‘searchMap’:
+hashmap.c:115:18: error: ‘Pair’ has no member named ‘next’
+  115 |         par = par->next; // Avanzar al siguiente par en la lista enlazada
+      |                  ^~
+Compilation failed
+7e521f7

@@ -98,21 +98,36 @@ void eraseMap(HashMap * map,  char * key) {
 
 Pair * searchMap(HashMap * map,  char * key)
 { 
-  if(map==NULL || key==NULL)
-  {
+  if (map == NULL || key == NULL) {
     return NULL;
   }
-  long posicion=hash(key,map->capacity);
-  Pair* par = map->buckets[posicion];
-  while(par!=NULL)
-    {
-      if(is_equal(par->key, key))
-      {
-        return par;
-      }
-      par++;  
+
+  long posicion = hash(key, map->capacity);
+  long original_posicion = posicion;
+
+  do {
+    Pair *par = map->buckets[posicion];
+    while (par != NULL) {
+        if (is_equal(par->key, key)) {
+            map->current = posicion;
+            return par;
+        }
+        par = par->next; // Avanzar al siguiente par en la lista enlazada
     }
-return NULL;
+
+    // Si llegamos a una casilla nula, la clave no está en el mapa
+    if (map->buckets[posicion] == NULL) {
+        map->current = -1;
+        return NULL;
+    }
+
+    // Avanzar al siguiente índice utilizando aritmética modular para el arreglo circular
+    posicion = (posicion + 1) % map->capacity;
+  } while (posicion != original_posicion);
+
+  // Si llegamos al punto de partida sin encontrar la clave, retorna NULL
+  map->current = -1;
+  return NULL;
 }
 
 Pair * firstMap(HashMap * map) {
