@@ -113,7 +113,6 @@ void eraseMap(HashMap * map,  char * key)
   {
     return;
   }
-  
   Pair* par=searchMap(map,key);
   if(par!=NULL)
   {
@@ -134,14 +133,14 @@ Pair * searchMap(HashMap * map,  char * key)
   }
   long posicion;
   for (long i = 0; i < map->capacity; i++) {
-    posicion = (hash(key, map->capacity) + i) % map->capacity; 
+    posicion = (hash(key, map->capacity) + i) % map->capacity; //busqueda lineal
       if (map->buckets[posicion] != NULL && is_equal(map->buckets[posicion]->key, key)) {
           map->current = posicion;
           return map->buckets[posicion];
       }
   }
 
-  // Si llegamos aquí, no se encontró el par con la clave especificada
+  //Si llegamos aquí, no se encontró el par con la clave especificada
   return NULL;
   
 }
