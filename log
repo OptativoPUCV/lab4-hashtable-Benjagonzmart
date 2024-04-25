@@ -140,3 +140,17 @@ hashmap.c:127:14: error: ‘Pair’ has no member named ‘next’
       |              ^~
 Compilation failed
 c511049
+Thu 25 Apr 2024 06:25:42 PM UTC: 
+ hashmap.c | 11 ++++-------
+ 1 file changed, 4 insertions(+), 7 deletions(-)
+In file included from test.c:4:
+hashmap.c: In function ‘searchMap’:
+hashmap.c:134:13: error: expected ‘;’ before ‘}’ token
+  134 |   return par
+      |             ^
+      |             ;
+......
+  138 | }
+      | ~            
+Compilation failed
+f21a185

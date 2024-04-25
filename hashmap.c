@@ -124,20 +124,17 @@ Pair * searchMap(HashMap * map,  char * key)
         return par;
         
       }
-      par=par->next;
+      
       
     }
-  if (map->buckets[posicion] == NULL) {
-      map->current = -1;
-      return NULL;
+  if (par == NULL)
+  {
+    return NULL;
   }
-  map->current = posicion;
-  return NULL;
-
-
+  return par
   
+ 
   
-return NULL;
 }
 
 Pair * firstMap(HashMap * map)
