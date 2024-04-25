@@ -117,7 +117,7 @@ Pair * searchMap(HashMap * map,  char * key)
   }
   long posicion;
   for (long i = 0; i < map->capacity; i++) {
-      posicion = hash(key, map->capacity); // Calcular el índice utilizando la función hash
+    posicion = (hash(key, map->capacity) + i) % map->capacity; // Calcular el índice utilizando la función hash
       if (map->buckets[posicion] != NULL && is_equal(map->buckets[posicion]->key, key)) {
           map->current = posicion;
           return map->buckets[posicion];
