@@ -48,10 +48,11 @@ void insertMap(HashMap * map, char * key, void * value)
     enlarge(map);
   }
   long posicion=hash(key,map->capacity);
-  Pair* par=searchMap(map,key);
+  Pair* par = searchMap(map,key);
   if(par==NULL)
   {
-    map->buckets[posicion]=createPair(key,value);
+    long posicion = map->current; // Obtiene la posición actualizada desde searchMap
+    map->buckets[posicion] = createPair(key, value);
     map->size++;
     
   }
@@ -117,7 +118,7 @@ Pair * searchMap(HashMap * map,  char * key)
   }
   long posicion;
   for (long i = 0; i < map->capacity; i++) {
-    posicion = (hash(key, map->capacity) + i) % map->capacity; // Calcular el índice utilizando la función hash
+    posicion = (hash(key, map->capacity) + i) % map->capacity; 
       if (map->buckets[posicion] != NULL && is_equal(map->buckets[posicion]->key, key)) {
           map->current = posicion;
           return map->buckets[posicion];
